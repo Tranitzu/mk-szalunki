@@ -1,17 +1,3 @@
-/*
-Theme Name: FL Framework
-Theme URI: https://konstrukcjecyfrowe.pl
-Author: Falis Konstrukcje Cyfrowe
-Author URI: https://konstrukcjecyfrowe.pl
-Description: Autorski framework autorstwa Falis Konstrukcje Cyfrowe.
-Version: 1.0.0
-License: GNU General Public License v2 or later
-Text Domain: fl-framework
-*/
-
-/* ==========================================================================
-   Variables
-   ========================================================================== */
 :root {
   --fl-bg: #ffffff;
   --fl-surface: #f5f5f5;
@@ -22,20 +8,17 @@ Text Domain: fl-framework
   --fl-muted: #59554d;
   --fl-sand: #8c6a32;
   --fl-sand-hi: #6e5224;
-
   --fl-font:
     system-ui, -apple-system, "Segoe UI Variable Text", "Segoe UI",
     "Helvetica Neue", Helvetica, "Liberation Sans", Arial, sans-serif;
   --fl-mono:
     ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas,
     monospace;
-
   --fl-max: 1200px;
   --fl-pad: 20px;
   --fl-gap: 16px;
   --fl-section: 64px;
   --fl-head: 64px;
-
   --fl-radius: 2px;
   --fl-ease: cubic-bezier(0.2, 0.6, 0.2, 1);
 }
@@ -62,9 +45,6 @@ Text Domain: fl-framework
   }
 }
 
-/* ==========================================================================
-   Reset & Base
-   ========================================================================== */
 *,
 *::before,
 *::after {
@@ -112,9 +92,6 @@ body a:hover {
   color: var(--fl-sand-hi);
 }
 
-/* ==========================================================================
-   Typography & Layout
-   ========================================================================== */
 .fl-label {
   font-family: var(--fl-mono);
   font-size: 12px;
@@ -178,9 +155,6 @@ body a:hover {
   color: var(--fl-txt);
 }
 
-/* ==========================================================================
-   Components (Buttons & Cards)
-   ========================================================================== */
 a.fl-btn,
 .fl-btn .wp-block-button__link {
   display: inline-flex;
@@ -309,9 +283,6 @@ a.fl-btn-ghost:hover::before {
   margin-bottom: 14px;
 }
 
-/* ==========================================================================
-   Quotations & Ratings
-   ========================================================================== */
 .fl-quote {
   margin: 0 0 24px 0;
   font-size: 1.125rem;
@@ -345,9 +316,6 @@ a.fl-btn-ghost:hover::before {
   margin-top: 6px;
 }
 
-/* ==========================================================================
-   Forms
-   ========================================================================== */
 .fl-form {
   display: grid;
   gap: 14px;
@@ -434,9 +402,6 @@ a.fl-btn-ghost:hover::before {
   opacity: 0 !important;
 }
 
-/* ==========================================================================
-   WordPress Overrides
-   ========================================================================== */
 .fl-header,
 .fl-hero,
 .fl-section,
@@ -505,9 +470,6 @@ a.fl-btn-ghost:hover::before {
   margin-bottom: 1rem;
 }
 
-/* ==========================================================================
-   Animations & Accessibility
-   ========================================================================== */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .fl-reveal {
@@ -537,9 +499,6 @@ a.fl-btn-ghost:hover::before {
   }
 }
 
-/* ==========================================================================
-   Header
-   ========================================================================== */
 .fl-header {
   position: sticky;
   top: 0;
@@ -613,9 +572,6 @@ a.fl-btn-ghost:hover::before {
   color: var(--fl-bg);
 }
 
-/* ==========================================================================
-   Hero
-   ========================================================================== */
 .fl-hero {
   position: relative;
   overflow: hidden;
@@ -675,7 +631,6 @@ a.fl-btn-ghost:hover::before {
   margin-top: 32px;
 }
 
-/* Hero Desktop Collage */
 @media (min-width: 64em) {
   .fl-hero__grid {
     grid-template-columns: 1.1fr 0.9fr;
@@ -733,9 +688,6 @@ a.fl-btn-ghost:hover::before {
   }
 }
 
-/* ==========================================================================
-   Utilities & Footer
-   ========================================================================== */
 .fl-list {
   list-style: none;
   padding: 0;
@@ -839,9 +791,6 @@ a.fl-btn-ghost:hover::before {
   }
 }
 
-/* ==========================================================================
-   Mobile Menu
-   ========================================================================== */
 @media (max-width: 47.99em) {
   .fl-header__nav ul {
     gap: 14px;
@@ -1004,5 +953,92 @@ body.fl-no-scroll {
   .fl-header__nav,
   .fl-header__toggle-bars span {
     transition: none !important;
+  }
+}
+
+.fl-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 0;
+  align-self: start;
+  align-content: start;
+}
+
+.fl-gallery__thumb {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--fl-line);
+  background: var(--fl-surface);
+  border-radius: var(--fl-radius);
+  overflow: hidden;
+  cursor: zoom-in;
+  line-height: 0;
+  transition:
+    border-color 0.2s var(--fl-ease),
+    transform 0.2s var(--fl-ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fl-gallery__thumb:hover {
+  border-color: var(--fl-sand);
+  transform: translateY(-2px);
+}
+
+.fl-gallery__thumb:focus-visible {
+  outline: 2px solid var(--fl-sand);
+  outline-offset: 2px;
+}
+
+.fl-gallery__thumb img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.3s var(--fl-ease);
+}
+
+.fl-gallery__thumb:hover img {
+  transform: scale(1.04);
+}
+
+.fl-gallery__lightbox {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+}
+
+.fl-gallery__lightbox img {
+  display: block;
+  max-width: 92vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--fl-radius);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+}
+
+.fl-gallery__lightbox::backdrop {
+  background: rgba(23, 22, 20, 0.88);
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 47.99em) {
+  .fl-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fl-gallery__thumb,
+  .fl-gallery__thumb img {
+    transition: none !important;
+  }
+  .fl-gallery__thumb:hover,
+  .fl-gallery__thumb:hover img {
+    transform: none;
   }
 }
