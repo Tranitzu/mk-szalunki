@@ -16,12 +16,12 @@ Text Domain: fl-framework
   --fl-bg: #ffffff;
   --fl-surface: #f5f5f5;
   --fl-layer: #1f1d1a;
-  --fl-line: #2c2a26;
+  --fl-line: #d4d0c8;
   --fl-txt: #171001;
-  --fl-body: #b0aaa0;
-  --fl-muted: #8c877e;
-  --fl-sand: #cbb48c;
-  --fl-sand-hi: #e2aeae;
+  --fl-body: #4a463f;
+  --fl-muted: #59554d;
+  --fl-sand: #8c6a32;
+  --fl-sand-hi: #6e5224;
 
   --fl-font:
     system-ui, -apple-system, "Segoe UI Variable Text", "Segoe UI",
@@ -211,10 +211,10 @@ a.fl-btn-ghost {
   justify-content: center;
   overflow: hidden;
   background: transparent;
-  color: var(--fl-sand);
+  color: #cbb48c;
   padding: 16px 26px;
   min-height: 48px;
-  border: 1px solid var(--fl-sand);
+  border: 1px solid #cbb48c;
   border-radius: var(--fl-radius);
   font-weight: 600;
   transition: color 0.22s var(--fl-ease);
@@ -225,7 +225,7 @@ a.fl-btn-ghost::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--fl-sand);
+  background: #cbb48c;
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.22s var(--fl-ease);
@@ -233,7 +233,7 @@ a.fl-btn-ghost::before {
 }
 
 a.fl-btn-ghost:hover {
-  color: var(--fl-bg);
+  color: var(--fl-txt);
 }
 
 a.fl-btn-ghost:hover::before {
@@ -281,12 +281,10 @@ a.fl-btn-ghost:hover::before {
   transform: translateY(-3px);
 }
 
-/* Wymusza biały kolor dla wszystkich tekstów w środku karty przy hoverze */
 .fl-card:hover * {
   color: var(--fl-bg) !important;
 }
 
-/* Wyjątek dla gwiazdek, żeby pozostały żółte na ciemnym tle */
 .fl-card:hover .fl-stars {
   color: #fbbc04 !important;
 }
@@ -609,7 +607,7 @@ a.fl-btn-ghost:hover::before {
 .fl-hero {
   background-image:
     linear-gradient(rgba(23, 22, 20, 0.75), rgba(23, 22, 20, 0.85)),
-    url("media/Szalunek-typu-Tekko.jpg");
+    url("media/Szalunek-typu-Tekko.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -628,6 +626,10 @@ a.fl-btn-ghost:hover::before {
   justify-content: center;
 }
 
+.fl-hero__content .fl-label {
+  color: #cbb48c;
+}
+
 .fl-hero__content .fl-h1 {
   color: #ffffff;
 }
@@ -637,11 +639,11 @@ a.fl-btn-ghost:hover::before {
 }
 
 .fl-hero__content .fl-lead a {
-  color: var(--fl-sand);
+  color: #cbb48c;
 }
 
 .fl-hero__content .fl-lead a:hover {
-  color: var(--fl-sand-hi);
+  color: #e2aeae;
 }
 
 .fl-hero__gallery {
@@ -732,13 +734,11 @@ a.fl-btn-ghost:hover::before {
   color: var(--fl-txt);
 }
 
-/* Główna siatka - automatycznie dopasowuje kolumny */
 .fl-footer__inner {
   display: grid;
   gap: 40px;
   max-width: var(--fl-max);
   margin-inline: auto;
-  /* Mobile: 1 kolumna, Tablet: 2, Desktop: 4 */
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
@@ -756,7 +756,6 @@ a.fl-btn-ghost:hover::before {
   color: var(--fl-muted);
 }
 
-/* Listy w stopce */
 .fl-footer__list {
   list-style: none;
   padding: 0;
@@ -782,7 +781,6 @@ a.fl-btn-ghost:hover::before {
   color: var(--fl-sand);
 }
 
-/* Adres (dane NAP) */
 .fl-footer__address {
   font-style: normal;
   color: var(--fl-muted);
@@ -794,7 +792,6 @@ a.fl-btn-ghost:hover::before {
   color: var(--fl-txt);
 }
 
-/* Dolny pasek */
 .fl-footer__bar {
   max-width: var(--fl-max);
   margin-inline: auto;
@@ -864,6 +861,7 @@ body.fl-no-scroll {
 .fl-header__toggle:hover {
   border-color: var(--fl-sand);
   background: var(--fl-layer);
+  color: var(--fl-bg);
 }
 
 .fl-header__toggle:focus-visible {
